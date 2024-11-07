@@ -1,0 +1,34 @@
+{
+    "name": "ChopstickControls",
+    "maps": [
+        {
+            "name": "ChopSticks",
+            "id": "1270944e-03b7-4686-9edd-b5573cb61c53",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Value",
+                    "id": "ce8a44e5-5ca3-49d7-853d-e9a5bbd0d833",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0d9c11fc-6510-4564-ac29-b8be85cb1229",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
