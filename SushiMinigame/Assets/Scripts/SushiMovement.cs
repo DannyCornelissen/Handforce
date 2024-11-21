@@ -29,7 +29,7 @@ public class SushiMovement : MonoBehaviour
     {
        int index = 0;
 
-       goalPlate = GameObject.Find("SushiOne").GetComponent<RegisterSushiOnGoalPlate>();
+       goalPlate = GameObject.Find("SushiTest").GetComponent<RegisterSushiOnGoalPlate>();
        floor = GameObject.Find("Floor").GetComponent<RegisterSushiOnFloor>();
 
         foreach (Transform waypoint in waypoints)
