@@ -25,13 +25,17 @@ public class SushiSpawn : MonoBehaviour
         //this checks if CreatedObject is null
         if (CreatedObject == null)
         {
-            //Generates a random number
-            int rng = Random.Range(0, Sushi.Count);
-
-            //Creates object taken from prefabs in a list randomly using the generated number.
-            //It then adds it to CreatedObject making it not null wich means no items can be added anymore. 
-            //After that it sets the object to spawner wich is an object in the scene that also holds this script using its location it sets the location of the sushi
-            CreatedObject = Instantiate(Sushi[rng], Spawner.transform.position, Sushi[rng].transform.rotation);
+            CreateNewPlate();
         }
+    }
+    public void CreateNewPlate()
+    {
+        //Generates a random number
+        int rng = Random.Range(0, Sushi.Count);
+
+        //Creates object taken from prefabs in a list randomly using the generated number.
+        //It then adds it to CreatedObject making it not null wich means no items can be added anymore. 
+        //After that it sets the object to spawner wich is an object in the scene that also holds this script using its location it sets the location of the sushi
+        CreatedObject = Instantiate(Sushi[rng], Spawner.transform.position, Sushi[rng].transform.rotation);
     }
 }

@@ -15,6 +15,8 @@ public class SushiMovement : MonoBehaviour
     private int stopPoint;
 
     private bool _readyForDecouple = false;
+    private RegisterSushiOnGoalPlate goalPlate;
+    private RegisterSushiOnFloor floor;
 
     public bool ReadyForDecouple
     {
@@ -25,8 +27,12 @@ public class SushiMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int index = 0;
-       foreach(Transform waypoint in waypoints)
+       int index = 0;
+
+       goalPlate = GameObject.Find("SushiOne").GetComponent<RegisterSushiOnGoalPlate>();
+       floor = GameObject.Find("Floor").GetComponent<RegisterSushiOnFloor>();
+
+        foreach (Transform waypoint in waypoints)
        {
          if(waypoint.tag ==  "StopPoint")
          {
@@ -46,7 +52,7 @@ public class SushiMovement : MonoBehaviour
         else if(transform.position == waypoints[stopPoint].position)
         {
             _readyForDecouple = true;
-            if (Input.GetKeyDown("c"))
+            if (goalPlate.isSushiOnGoalPlate || floor.isSushiOnFloor)
             {
                 MoveToWaypoint(waypoints[nextWayPoint]);
             }

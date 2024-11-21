@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Plate
   - StopPoint
+  - Sushi
   layers:
   - Default
   - TransparentFX
