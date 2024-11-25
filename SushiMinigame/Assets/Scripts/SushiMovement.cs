@@ -29,7 +29,7 @@ public class SushiMovement : MonoBehaviour
     {
        int index = 0;
 
-       goalPlate = GameObject.Find("SushiTest").GetComponent<RegisterSushiOnGoalPlate>();
+     //  goalPlate = GameObject.Find("SushiOne").GetComponent<RegisterSushiOnGoalPlate>();
        floor = GameObject.Find("Floor").GetComponent<RegisterSushiOnFloor>();
 
         foreach (Transform waypoint in waypoints)
@@ -52,10 +52,10 @@ public class SushiMovement : MonoBehaviour
         else if(transform.position == waypoints[stopPoint].position)
         {
             _readyForDecouple = true;
-            if (goalPlate.isSushiOnGoalPlate || floor.isSushiOnFloor)
-            {
-                MoveToWaypoint(waypoints[nextWayPoint]);
-            }
+            //if (goalPlate.isSushiOnGoalPlate || floor.isSushiOnFloor)
+            //{
+            //    MoveToWaypoint(waypoints[nextWayPoint]);
+            //}
         }
 
 

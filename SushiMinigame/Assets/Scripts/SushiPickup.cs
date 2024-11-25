@@ -11,11 +11,15 @@ using UnityEngine;
     private GameObject thumb;
     private Transform sushi;
     private bool isParentSet = false;
+    public float speed = 5f;      
+    public float maxDistance = 10f;    
+    private Vector3 startPosition;
+    private bool backwardInputReceived = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        startPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -24,12 +28,26 @@ using UnityEngine;
         if( fingerSide != null && thumbSide != null && fingerSide != thumbSide)
         {
             sushi.SetParent(thumb.transform);
+            backwardInputReceived = true;
+}
+        else if(fingerSide == null && sushi != null)
+        {
+            sushi.parent = null;
+        }
+        
+        float distanceMoved = Vector3.Distance(startPosition, transform.position);
+        if (distanceMoved < maxDistance && backwardInputReceived)
+        {
+            transform.Translate(-Vector3.forward * speed * Time.deltaTime, Space.World);
         }
     }
+
+
+
     public void OnCollisionDetected(string side, GameObject finger, Transform Sushi )
     {
         sushi = Sushi;
-        if(finger.tag == "Thumb")
+        if (finger.tag == "Thumb")
         {
             thumbSide = side;
             thumb = finger;
@@ -37,6 +55,7 @@ using UnityEngine;
   
         if(finger.tag == "IndexFinger")
         {
+
             fingerSide = side;
         }
     }
@@ -50,7 +69,7 @@ using UnityEngine;
 
         if (finger.tag == "IndexFinger")
         {
-            fingerSide = null; // Clear fingerSide when the index finger exits
+            fingerSide = null;
         }
     }
 }
