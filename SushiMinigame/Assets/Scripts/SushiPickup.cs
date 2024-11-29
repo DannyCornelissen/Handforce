@@ -64,7 +64,7 @@ using UnityEngine;
     {
         if (finger.tag == "Thumb")
         {
-            thumbSide = null; // Clear thumbSide when the thumb exits
+            thumbSide = null;
         }
 
         if (finger.tag == "IndexFinger")
