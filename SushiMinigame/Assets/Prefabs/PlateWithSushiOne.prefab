@@ -189,6 +189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SushiOne
       objectReference: {fileID: 0}
+    - target: {fileID: 3808557121763375597, guid: 0370e509a9d1f7743a496a03623922f0, type: 3}
+      propertyPath: m_TagString
+      value: Sushi
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8125002726335252675, guid: cdd86ad1791e98c43bc4f9cd82c91028, type: 3}
     m_RemovedGameObjects: []

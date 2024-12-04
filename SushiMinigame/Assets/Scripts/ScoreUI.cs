@@ -7,7 +7,7 @@ public class ScoreUI : MonoBehaviour
 {
     public TMP_Text scoreText; // Assign the UI Text component in the Inspector
     public static int score = 0;
-    private static int winningScore = 5;
+    [SerializeField] private int winningScore = 5;
     public GameObject completeLevelUI;
 
     void Update()
