@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5136314106539258571}
   - component: {fileID: 3099148316617222629}
   - component: {fileID: 3410866725228946940}
+  - component: {fileID: 8361677576035834440}
   m_Layer: 0
   m_Name: PlateWithSushiTwo
   m_TagString: Plate
@@ -103,6 +104,27 @@ MonoBehaviour:
   - {fileID: 7724633476890134586, guid: 93758566365fa824fb042ab00b9e3494, type: 3}
   - {fileID: 1823543520527735016, guid: 9d2276a7f2dbfa846a20124af232d407, type: 3}
   speed: 8
+--- !u!65 &8361677576035834440
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6012750425319544530}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.019994332, y: 0.019994332, z: 0.019995851}
+  m_Center: {x: 0, y: 0, z: 0.00000056764105}
 --- !u!1001 &734186196394928031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -173,6 +195,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3210251053577314677}
     m_Modifications:
+    - target: {fileID: 4042195581008648686, guid: 6765d6b96c281214eb9c3c3c87701812, type: 3}
+      propertyPath: m_Name
+      value: Salmon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487450654430576995, guid: 6765d6b96c281214eb9c3c3c87701812, type: 3}
+      propertyPath: m_Name
+      value: Rice
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487450654430576995, guid: 6765d6b96c281214eb9c3c3c87701812, type: 3}
+      propertyPath: m_TagString
+      value: SushiCollisionChecker
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388416968864064595, guid: 6765d6b96c281214eb9c3c3c87701812, type: 3}
+      propertyPath: m_Name
+      value: Seaweed
+      objectReference: {fileID: 0}
     - target: {fileID: 7766806281508860047, guid: 6765d6b96c281214eb9c3c3c87701812, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.004
@@ -246,6 +284,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9067092313334428499, guid: 6765d6b96c281214eb9c3c3c87701812, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1950424150222911547}
+    - targetCorrespondingSourceObject: {fileID: 4487450654430576995, guid: 6765d6b96c281214eb9c3c3c87701812, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4805626563900516396}
+    - targetCorrespondingSourceObject: {fileID: 4487450654430576995, guid: 6765d6b96c281214eb9c3c3c87701812, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1797282702965112588}
   m_SourcePrefab: {fileID: 100100000, guid: 6765d6b96c281214eb9c3c3c87701812, type: 3}
 --- !u!4 &2542543958695209106 stripped
 Transform:
@@ -284,6 +328,45 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &8558937108635556222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4487450654430576995, guid: 6765d6b96c281214eb9c3c3c87701812, type: 3}
+  m_PrefabInstance: {fileID: 5224689502518007837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4805626563900516396
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558937108635556222}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.020000005, y: 0.019999998, z: 0.023307078}
+  m_Center: {x: 0.000008355121, y: -0.000007585866, z: -0.0014946087}
+--- !u!114 &1797282702965112588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558937108635556222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445f108a686472649bf958d39b7c5058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sushiSpawn: {fileID: 4486688018977498053, guid: 13407bc4e6800534ab710720390f3a31, type: 3}
 --- !u!1001 &5942065633026939368
 PrefabInstance:
   m_ObjectHideFlags: 0

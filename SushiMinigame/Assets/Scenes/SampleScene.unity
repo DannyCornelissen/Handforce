@@ -163,6 +163,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1071163639562343873, guid: bd3c706fed52fc04ca79f2370b46efe3, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6212787067180515316, guid: bd3c706fed52fc04ca79f2370b46efe3, type: 3}
       propertyPath: m_LocalScale.x
       value: 248.12708
@@ -219,25 +223,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoalPlate
       objectReference: {fileID: 0}
+    - target: {fileID: 6733884503118259534, guid: bd3c706fed52fc04ca79f2370b46efe3, type: 3}
+      propertyPath: m_TagString
+      value: GoalPlate
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6733884503118259534, guid: bd3c706fed52fc04ca79f2370b46efe3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 450878367}
+      addedObject: {fileID: 450878372}
   m_SourcePrefab: {fileID: 100100000, guid: bd3c706fed52fc04ca79f2370b46efe3, type: 3}
---- !u!114 &173282273 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4486688018977498053, guid: 13407bc4e6800534ab710720390f3a31, type: 3}
-  m_PrefabInstance: {fileID: 824733469}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2968116ed7c30e84fb5fb1ea614b251a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &389427823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -246,14 +243,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5673643704763737807, guid: 9090c2e18716aed4bb9b4a66164ca9f6, type: 3}
-      propertyPath: sushiSpawn
-      value: 
-      objectReference: {fileID: 173282273}
-    - target: {fileID: 5673643704763737807, guid: 9090c2e18716aed4bb9b4a66164ca9f6, type: 3}
-      propertyPath: registerSushiOnGoalPlate
-      value: 
-      objectReference: {fileID: 450878367}
     - target: {fileID: 5947936400566998830, guid: 9090c2e18716aed4bb9b4a66164ca9f6, type: 3}
       propertyPath: m_Name
       value: Floor
@@ -310,7 +299,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -320,21 +310,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6733884503118259534, guid: bd3c706fed52fc04ca79f2370b46efe3, type: 3}
   m_PrefabInstance: {fileID: 157124822}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &450878367
-MonoBehaviour:
+--- !u!54 &450878372
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450878362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d610aa0e913b2842b59f077b43d47e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sushiSpawn: {fileID: 173282273}
-  isSushiOnGoalPlate: 0
-  hasCollided: 0
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!65 &470511547
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -840,23 +842,8 @@ BoxCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.023563331, y: 0.1364568, z: 0.012870674}
-  m_Center: {x: 0.0009134313, y: -0.051193897, z: -0.0044329157}
---- !u!114 &926772866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926772861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 522591ce701477742b9a23ac71ea340d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSushiOnFloor: 0
-  sushiSpawn: {fileID: 173282273}
-  registerSushiOnGoalPlate: {fileID: 450878367}
+  m_Size: {x: 0.025150768, y: 0.1364568, z: 0.029117022}
+  m_Center: {x: 0.0017071789, y: -0.051193897, z: 0.0036902577}
 --- !u!1001 &1161916449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2025,15 +2012,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6900749721607340472, guid: 56967902864fb5641995307288740737, type: 3}
       propertyPath: m_TagString
-      value: Floor
+      value: BarCounter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6900749721607340472, guid: 56967902864fb5641995307288740737, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 926772866}
     - targetCorrespondingSourceObject: {fileID: 6900749721607340472, guid: 56967902864fb5641995307288740737, type: 3}
       insertIndex: -1
       addedObject: {fileID: 926772865}

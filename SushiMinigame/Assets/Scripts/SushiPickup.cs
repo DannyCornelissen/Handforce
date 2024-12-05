@@ -13,8 +13,6 @@ public class SushiPickup : MonoBehaviour
     private Vector3 startPosition;
     private bool backwardInputReceived = false;
     private bool sushiAttached = false;
-    private RegisterSushiOnGoalPlate goalPlate;
-    private RegisterSushiOnFloor floor;
 
     void Start()
     {
@@ -23,8 +21,6 @@ public class SushiPickup : MonoBehaviour
 
     void Update()
     {
-        goalPlate = GameObject.Find("GoalPlate").GetComponent<RegisterSushiOnGoalPlate>();
-        floor = GameObject.Find("Floor").GetComponent<RegisterSushiOnFloor>();
         if (firstFinger != null && secondFinger != null && firstFinger != secondFinger)
         {
           sushi.GetComponent<Rigidbody>().isKinematic = true;

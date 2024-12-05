@@ -12,19 +12,29 @@ public class ScoreUI : MonoBehaviour
 
     void Update()
     {
-        score = RegisterSushiOnGoalPlate.score;
+   
         scoreText.text = "Score: " + score; // Update the score text
         if (score == winningScore)
         {
             Debug.Log("You Won!!");
             completeLevelUI.SetActive(true);
-            RegisterSushiOnGoalPlate.score = 0;
             Time.timeScale = 0;
         }
     }
 
+    public void UpdateScore()
+    {
+        score++;
+    }
+
+    private void resetScore()
+    {
+        score = 0;
+    }
+
     public void StartAgain()
     {
+        resetScore();
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

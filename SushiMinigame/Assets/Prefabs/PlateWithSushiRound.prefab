@@ -175,6 +175,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: collisionRight
       objectReference: {fileID: 0}
+    - target: {fileID: 7825564892666865781, guid: c8c8eb33afb544845a1a7a23d884f95c, type: 3}
+      propertyPath: m_Name
+      value: Rice
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825564892666865781, guid: c8c8eb33afb544845a1a7a23d884f95c, type: 3}
+      propertyPath: m_TagString
+      value: SushiCollisionChecker
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109721994139780142, guid: c8c8eb33afb544845a1a7a23d884f95c, type: 3}
+      propertyPath: m_Name
+      value: Seaweed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290623006162968471, guid: c8c8eb33afb544845a1a7a23d884f95c, type: 3}
+      propertyPath: m_Name
+      value: Salmon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -182,7 +198,52 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5228942997200512093, guid: c8c8eb33afb544845a1a7a23d884f95c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 549183781360717571}
+    - targetCorrespondingSourceObject: {fileID: 7825564892666865781, guid: c8c8eb33afb544845a1a7a23d884f95c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7414558121108989650}
+    - targetCorrespondingSourceObject: {fileID: 7825564892666865781, guid: c8c8eb33afb544845a1a7a23d884f95c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3623172322601984008}
   m_SourcePrefab: {fileID: 100100000, guid: c8c8eb33afb544845a1a7a23d884f95c, type: 3}
+--- !u!1 &6242420719809067644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7825564892666865781, guid: c8c8eb33afb544845a1a7a23d884f95c, type: 3}
+  m_PrefabInstance: {fileID: 4195232094331130377}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7414558121108989650
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6242420719809067644}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.020000001, y: 0.019999998, z: 0.019999996}
+  m_Center: {x: -0.000000059604645, y: 0, z: -0.0000000018626451}
+--- !u!114 &3623172322601984008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6242420719809067644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445f108a686472649bf958d39b7c5058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sushiSpawn: {fileID: 4486688018977498053, guid: 13407bc4e6800534ab710720390f3a31, type: 3}
 --- !u!1 &8262023594533189204 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5228942997200512093, guid: c8c8eb33afb544845a1a7a23d884f95c, type: 3}

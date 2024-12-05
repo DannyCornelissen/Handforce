@@ -6,17 +6,15 @@ using UnityEngine;
 public class SushiMovement : MonoBehaviour
 {
     //Array of all the waypoints.
-     [SerializeField] private Transform[] waypoints;
+    [SerializeField] private Transform[] waypoints;
 
     //Speed at wich the object should travel.
     [SerializeField] private float speed;
 
     private int nextWayPoint = 0;
     private int stopPoint;
-
     private bool _readyForDecouple = false;
-    private RegisterSushiOnGoalPlate goalPlate;
-    private RegisterSushiOnFloor floor;
+
 
     public bool ReadyForDecouple
     {
@@ -27,46 +25,51 @@ public class SushiMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       int index = 0;
+        int index = 0;
 
-       goalPlate = GameObject.Find("GoalPlate").GetComponent<RegisterSushiOnGoalPlate>();
-       floor = GameObject.Find("SushiBarCounter").GetComponent<RegisterSushiOnFloor>();
+
 
         foreach (Transform waypoint in waypoints)
-       {
-         if(waypoint.tag ==  "StopPoint")
-         {
-            stopPoint = index;
-         }
-         index++;
-       }
+        {
+            if (waypoint.tag == "StopPoint")
+            {
+                stopPoint = index;
+            }
+            index++;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(transform.position != waypoints[stopPoint].position)
+        GameObject sushi = GameObject.FindGameObjectWithTag("SushiCollisionChecker");
+
+
+        if (transform.position != waypoints[stopPoint].position)
         {
             MoveToWaypoint(waypoints[nextWayPoint]);
         }
-        else if(transform.position == waypoints[stopPoint].position)
+        else if (transform.position == waypoints[stopPoint].position)
         {
-            _readyForDecouple = true;
-            if (goalPlate.hasCollided|| floor.isSushiOnFloor)
+            if (sushi != null)
             {
-                MoveToWaypoint(waypoints[nextWayPoint]);
+                SushiCollisionChecker checker = sushi.GetComponent<SushiCollisionChecker>();
+                _readyForDecouple = true;
+                if (checker.CollidedBarCounter || checker.CollidedGoalPlate || checker.CollidedOriginalPlate)
+                {
+                    MoveToWaypoint(waypoints[nextWayPoint]);
+                }
+
             }
         }
-
 
         if (transform.position == waypoints[nextWayPoint].position && nextWayPoint <= waypoints.Count())
         {
             nextWayPoint++;
         }
     }
-
-    private void MoveToWaypoint(Transform Waypoint)
+    public void MoveToWaypoint(Transform Waypoint)
     {
-      transform.position = Vector3.MoveTowards(transform.position, Waypoint.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, Waypoint.position, speed * Time.deltaTime);
     }
 }

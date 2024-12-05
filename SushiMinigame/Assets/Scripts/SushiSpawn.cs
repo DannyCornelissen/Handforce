@@ -16,17 +16,14 @@ public class SushiSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        CreateNewPlate();
     }
 
     // Update is called once per frame
     void Update()
     {
         //this checks if CreatedObject is null
-        if (CreatedObject == null)
-        {
-            CreateNewPlate();
-        }
+
     }
     public void CreateNewPlate()
     {
