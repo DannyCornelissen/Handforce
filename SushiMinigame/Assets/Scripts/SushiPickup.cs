@@ -43,10 +43,16 @@ public class SushiPickup : MonoBehaviour
             transform.Translate(-Vector3.forward * speed * Time.deltaTime, Space.World);
         }
       
-        if(!sushiAttached && distanceMoved > minDistance)
+        if(!sushiAttached && distanceMoved > minDistance && transform.position.z <= startPosition.z)
         {
+            Debug.Log("DISTANCE MOVED: " + distanceMoved + "MINDISTANCE: " + minDistance);
             backwardInputReceived = false;
             transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.World);
+
+            if(Vector3.Distance(transform.position, startPosition) <= 0.01f)
+            {
+                transform.position = startPosition;
+            }
         }
 
     }
