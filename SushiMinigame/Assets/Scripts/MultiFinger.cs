@@ -137,8 +137,8 @@ public class MultiFinger : MonoBehaviour
                     string[] parts = line.Split(' ');
 
                     float x = float.Parse(parts[0].Substring(2));
-                    float y = float.Parse(parts[1].Substring(2));
-                    float z = float.Parse(parts[2].Substring(2));
+                    float y = float.Parse(parts[2].Substring(2));
+                    float z = float.Parse(parts[1].Substring(2));
 
                     // Assign the values to the right angles
                     Movement(currentChannel, x, y, z);
@@ -162,7 +162,7 @@ public class MultiFinger : MonoBehaviour
         Transform targetTransform = transforms[channel];
 
         // Apply the rotation to the transform
-        targetTransform.localRotation = Quaternion.Euler(x * rotationMultiplier, y * rotationMultiplier, z * rotationMultiplier);
+        targetTransform.localRotation = Quaternion.Euler(-x * rotationMultiplier, -y * rotationMultiplier, -z * rotationMultiplier);
 
         //Debug.Log($"Rotating Channel {targetTransform}: X={x}, Y={y}, Z={z}");
     }
