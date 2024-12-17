@@ -28,30 +28,33 @@ public class SushiCollisionChecker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other )
    {
-        switch (other.gameObject.tag)
+        if (gameObject.transform.parent.gameObject.GetComponent<Rigidbody>().useGravity == true)
         {
-            case ("GoalPlate"):
-                registerGoalPlate();
-                break;
+            switch (other.gameObject.tag)
+            {
+                 case ("GoalPlate"):
+                     registerGoalPlate();
+                 break;
 
-            case ("BarCounter"):
-                collidedBarCounter = true;
-                collisionCount++;
-                if (collidedGoalPlate || collidedOriginalPlate) return;
-                StartCoroutine(RespawnAfterDelay(2f));
-                break;
-
-            default:
-                break;
-            case ("Plate"):
-                if(gameObject.transform.parent.gameObject.GetComponent<Rigidbody>().useGravity == true)
-                {
-                    collidedOriginalPlate = true;
+                case ("BarCounter"):
+                    collidedBarCounter = true;
                     collisionCount++;
+                    if (collidedGoalPlate || collidedOriginalPlate) return;
                     StartCoroutine(RespawnAfterDelay(2f));
-                }
+                break;
+
+                default:
+                break;
+                case ("Plate"):
+                    if(gameObject.transform.parent.gameObject.GetComponent<Rigidbody>().useGravity == true)
+                    {
+                        collidedOriginalPlate = true;
+                        collisionCount++;
+                        StartCoroutine(RespawnAfterDelay(2f));
+                    }
 
                 break;
+            }
         }
 
     }
