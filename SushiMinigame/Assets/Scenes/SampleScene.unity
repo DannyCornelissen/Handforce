@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647284584}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ded74c731409254d98621e069413d71, type: 3}
   m_Name: 
@@ -389,8 +389,8 @@ MonoBehaviour:
   baudRate: 9600
   useSimData: 0
   palm: {fileID: 3944037526741672087}
-  Index2L: {fileID: 8729073001589916727}
-  Index3L: {fileID: 2768379988464470906}
+  baseFinger: {fileID: 0}
+  topFinger: {fileID: 0}
   rotationMultiplier: 1
 --- !u!114 &647284588
 MonoBehaviour:
@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149298057946}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ded74c731409254d98621e069413d71, type: 3}
   m_Name: 
@@ -1126,8 +1126,8 @@ MonoBehaviour:
   baudRate: 9600
   useSimData: 0
   palm: {fileID: 3944037526741672087}
-  Index2L: {fileID: 8729073001589916727}
-  Index3L: {fileID: 2768379988464470906}
+  baseFinger: {fileID: 0}
+  topFinger: {fileID: 0}
   rotationMultiplier: 1
 --- !u!1 &1041130111584110134
 GameObject:
@@ -1807,6 +1807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3944037526741672087}
+  - component: {fileID: 5174624464460137367}
   m_Layer: 0
   m_Name: Palm.L
   m_TagString: Untagged
@@ -1814,6 +1815,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5174624464460137367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174624464460137366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d521f7cc6b8904093e90ee76747d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baudRate: 115200
+  useSimData: 0
+  strRecieved: 
+  strData:
+  - 
+  - 
+  - 
+  - 
+  strDataRecieved:
+  - 
+  - 
+  - 
+  - 
+  qw: 0
+  qx: 0
+  qy: 0
+  qz: 0
 --- !u!1001 &5231893074872130425
 PrefabInstance:
   m_ObjectHideFlags: 0
