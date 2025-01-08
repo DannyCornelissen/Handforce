@@ -104,21 +104,16 @@ public class GyroHandler : MonoBehaviour
             {
                 using (SerialPort testPort = new SerialPort(port, 9600))
                 {
-                    testPort.ReadTimeout = 500; // Timeout to avoid long delays
+                    testPort.ReadTimeout = 500;
                     testPort.Open();
-
-                    // Optionally write something simple (Arduino does not need to respond)
+            
                     testPort.WriteLine("PING");
 
-                    // Wait for a moment to check if the port throws any errors
                     System.Threading.Thread.Sleep(200);
 
-                    // If no exception occurs, assume this is the correct port
                     Debug.Log($"Port {port} seems to work.");
                     testPort.Close();
                     return port;
-
-                    testPort.Close();
                 }
             }
             catch (Exception e)
