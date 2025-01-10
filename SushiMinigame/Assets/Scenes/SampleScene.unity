@@ -199,7 +199,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149298057946}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79a6bad3a97e58b458506289f4e77847, type: 3}
   m_Name: 
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149298057946}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4fbc8bc2a98d3b46909247850647801, type: 3}
   m_Name: 
@@ -2648,6 +2648,7 @@ GameObject:
   - component: {fileID: 543450653557327968}
   - component: {fileID: 142634896}
   - component: {fileID: 142634897}
+  - component: {fileID: 919132149298057947}
   m_Layer: 0
   m_Name: Arm
   m_TagString: Untagged
@@ -2655,6 +2656,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132149298057947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149298057946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ded74c731409254d98621e069413d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baudRate: 115200
+  useSimData: 0
+  palm: {fileID: 3944037526741672087}
+  baseFinger: {fileID: 8729073001589916727}
+  topFinger: {fileID: 2768379988464470906}
 --- !u!1 &1041130111584110134
 GameObject:
   m_ObjectHideFlags: 0

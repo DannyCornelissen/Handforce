@@ -7,7 +7,6 @@ using static UnityEngine.GraphicsBuffer;
 public class SingleFinger : MonoBehaviour
 {
     private SerialPort serialPort;
-    public string portName = ""; // Switch to needed port
     public int baudRate = 115200;
 
     //Simulated Data
@@ -21,7 +20,6 @@ public class SingleFinger : MonoBehaviour
     public Transform baseFinger; //base finger
     public Transform topFinger; //top finger
 
-    public float rotationMultiplier = 1f; // Adjust for sensitivity
 
     // Gyroscope Data
     private float angle1X, angle1Y, angle1Z, angle1W; //palm angles
@@ -35,10 +33,10 @@ public class SingleFinger : MonoBehaviour
 
     void Start() // Sec stay same
     {
-
-        if (!useSimData) // if useSimData is true then it wont use this code
+        string detectedPort = FindArduinoPort();
+        if (!useSimData && !string.IsNullOrEmpty(detectedPort)) // if useSimData is true then it wont use this code
         {
-            serialPort = new SerialPort(portName, baudRate);
+            serialPort = new SerialPort(detectedPort, baudRate);
             try
             {
                 serialPort.Open();
@@ -188,6 +186,38 @@ public class SingleFinger : MonoBehaviour
                 topFinger.localRotation = new Quaternion(x, 0, 0, w);
                 break;
         }
+    }
+
+    private string FindArduinoPort()
+    {
+        string[] ports = SerialPort.GetPortNames();
+        Debug.Log("Available ports: " + string.Join(", ", ports));
+
+        foreach (string port in ports)
+        {
+            try
+            {
+                using (SerialPort testPort = new SerialPort(port, 9600))
+                {
+                    testPort.ReadTimeout = 500;
+                    testPort.Open();
+
+                    testPort.WriteLine("PING");
+
+                    System.Threading.Thread.Sleep(200);
+
+                    Debug.Log($"Port {port} seems to work.");
+                    testPort.Close();
+                    return port;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning($"Error testing port {port}: {e.Message}");
+            }
+        }
+
+        return null;
     }
 
 
