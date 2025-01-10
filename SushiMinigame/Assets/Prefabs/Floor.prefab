@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7112142773665290201}
   - component: {fileID: 5199459680434052868}
   - component: {fileID: 8482279865684663656}
-  - component: {fileID: 5673643704763737807}
   - component: {fileID: 7569562620133200653}
   m_Layer: 0
   m_Name: Floor
@@ -85,20 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5673643704763737807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5947936400566998830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 522591ce701477742b9a23ac71ea340d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSushiOnFloor: 0
-  sushiSpawn: {fileID: 0}
 --- !u!64 &7569562620133200653
 MeshCollider:
   m_ObjectHideFlags: 0

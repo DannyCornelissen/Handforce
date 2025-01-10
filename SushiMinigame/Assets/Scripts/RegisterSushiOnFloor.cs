@@ -5,29 +5,32 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class RegisterSushiOnFloor : MonoBehaviour
 {
-    //private Rigidbody rb;
-    //private Vector3 startPosition; // Stores the initial position of the sushi
-    //private Quaternion startRotation; // Stores the initial rotation of the sushi
+
     public bool isSushiOnFloor = false;
     public SushiSpawn sushiSpawn; // Get the script for the Sushi respawn mechanics
+    public RegisterSushiOnGoalPlate registerSushiOnGoalPlate;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //rb = GetComponent<Rigidbody>();
-        //startPosition = transform.position; // Save the starting position
-        //startRotation = transform.rotation; // Save the starting rotation
+    }
+
+    void Update()
+    {
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+       if(isSushiOnFloor)
+        {
+            return;
+        }
+        
         if (collision.gameObject.CompareTag("Sushi"))
         {
             Debug.Log("Sushi landed on Floor!");
-            //rb.velocity = Vector3.zero;
-            //rb.angularVelocity = Vector3.zero;
-            //rb.isKinematic = true;
 
             isSushiOnFloor = true;
 
@@ -38,15 +41,23 @@ public class RegisterSushiOnFloor : MonoBehaviour
     private IEnumerator RespawnAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+        GameObject[] sushi = GameObject.FindGameObjectsWithTag("Sushi");
+        if(registerSushiOnGoalPlate.isSushiOnGoalPlate)
+        {
+            RegisterSushiOnGoalPlate.score -= 1;
+        }
+        else
+        {
+            Destroy(sushi[0]);
+            sushiSpawn.CreateNewPlate();
+        }
+   
+        StartCoroutine(sushiNoLongerOnFloor(3f));
+    }
 
-        // Reset the sushi's position and rotation
-        //transform.position = startPosition;
-        //transform.rotation = startRotation;
-        //rb.isKinematic = false;
-
-        // Re-enable physics
-        sushiSpawn.CreateNewPlate();
+    private IEnumerator sushiNoLongerOnFloor(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         isSushiOnFloor = false;
-
     }
 }

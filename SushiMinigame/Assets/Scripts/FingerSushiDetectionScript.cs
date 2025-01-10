@@ -33,7 +33,7 @@ public class FingerSushiDetectionScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        sushiPickup?.OnCollisionEnded(gameObject.name, other.gameObject);
+        sushiPickup?.OnCollisionEnded(other.gameObject.name, gameObject);
     }
 
 }
