@@ -169,7 +169,7 @@ public class MultiFinger : MonoBehaviour
 
     void OnApplicationQuit() // Sec stay same
     {
-        if (serialPort.IsOpen)
+        if (serialPort != null && serialPort.IsOpen)
         {
             serialPort.Close();
         }
