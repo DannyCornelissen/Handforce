@@ -129,19 +129,20 @@ public class MultiFinger : MonoBehaviour
                 // Check if the line specifies a channel
                 if (line.StartsWith("Channel"))
                 {
-                    currentChannel = int.Parse(line.Substring(8).Trim()); // takes sensor/ channel number
+                    currentChannel = int.Parse(line.Substring(7).Trim()); // takes sensor/ channel number
                 }
                 else if (line.StartsWith("X:") && currentChannel != -1) //takes data and keeps it in its channel
                 {
                     // Takes the X, Y, Z values for the current channel
                     string[] parts = line.Split(' ');
 
-                    float x = float.Parse(parts[0].Substring(2));
+                    float w = float.Parse(parts[0].Substring(2));
+                    float x = float.Parse(parts[1].Substring(2));
                     float y = float.Parse(parts[2].Substring(2));
-                    float z = float.Parse(parts[1].Substring(2));
+                    float z = float.Parse(parts[3].Substring(2));
 
                     // Assign the values to the right angles
-                    Movement(currentChannel, x, y, z);
+                    Movement(currentChannel, x, y, z, w);
                 }
             }
         }
@@ -151,7 +152,7 @@ public class MultiFinger : MonoBehaviour
         }
     }
 
-    void Movement(int channel, float x, float y, float z)
+    void Movement(int channel, float x, float y, float z, float w)
     {
         // Store the angles for the specified channel
         angles[channel, 0] = x;
@@ -162,7 +163,7 @@ public class MultiFinger : MonoBehaviour
         Transform targetTransform = transforms[channel];
 
         // Apply the rotation to the transform
-        targetTransform.localRotation = Quaternion.Euler(-x * rotationMultiplier, -y * rotationMultiplier, -z * rotationMultiplier);
+        targetTransform.localRotation = new Quaternion(x * rotationMultiplier, y * rotationMultiplier, z * rotationMultiplier, w *rotationMultiplier);
 
         //Debug.Log($"Rotating Channel {targetTransform}: X={x}, Y={y}, Z={z}");
     }
